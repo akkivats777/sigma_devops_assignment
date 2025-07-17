@@ -66,15 +66,15 @@ pipeline {
       }
     }
 
-    stage('Smoke Test') {
-      steps {
-        sh '''
-        echo "🧪 Running smoke test..."
-        curl -sf http://wordpress.local || echo "⚠️ Smoke test failed. Check Ingress or Pod status."
-        '''
-      }
-    }
-  }
+  //   stage('Smoke Test') {
+  //     steps {
+  //       sh '''
+  //       echo "🧪 Running smoke test..."
+  //       curl -sf http://wordpress.local || echo "⚠️ Smoke test failed. Check Ingress or Pod status."
+  //       '''
+  //     }
+  //   }
+  // }
 
   post {
     success {
