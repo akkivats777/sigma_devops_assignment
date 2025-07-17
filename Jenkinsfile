@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Clone Repository') {
       steps {
-        git 'https://github.com/akkivats777/sigma_devops_assignment.git'
+        git branch: 'main', url: 'https://github.com/akkivats777/sigma_devops_assignment.git'
       }
     }
 
