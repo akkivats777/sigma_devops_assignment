@@ -48,15 +48,6 @@ pipeline {
       }
     }
 
-    stage('Read Version') {
-      steps {
-        script {
-          def version = readFile('version.txt').trim()
-          echo "🔖 Deploying Version: ${version}"
-        }
-      }
-    }
-
     stage('Deploy to Kubernetes') {
       steps {
         sh '''
@@ -90,11 +81,7 @@ pipeline {
       echo '✅ Deployment completed successfully!'
     }
     failure {
-      echo '❌ Deployment failed. Rolling back...'
-      sh '''
-      echo "🔄 Attempting rollback of WordPress deployment..."
-      kubectl rollout undo deployment/wordpress -n $K8S_NAMESPACE || true
-      '''
+      echo '❌ Deployment failed.'
     }
   }
 }
