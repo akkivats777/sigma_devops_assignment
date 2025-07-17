@@ -36,17 +36,17 @@ pipeline {
       }
     }
 
-    stage('Setup Kubeconfig') {
-      steps {
-        sh '''
-        echo "🔧 Setting up kubeconfig for Jenkins..."
-        mkdir -p $WORKSPACE/.kube
-        minikube update-context
-        cat ~/.kube/config > $KUBECONFIG
-        chmod 600 $KUBECONFIG
-        '''
-      }
-    }
+    // stage('Setup Kubeconfig') {
+    //   steps {
+    //     sh '''
+    //     echo "🔧 Setting up kubeconfig for Jenkins..."
+    //     mkdir -p $WORKSPACE/.kube
+    //     minikube update-context
+    //     cat ~/.kube/config > $KUBECONFIG
+    //     chmod 600 $KUBECONFIG
+    //     '''
+    //   }
+    // }
 
     stage('Deploy to Kubernetes') {
       steps {
