@@ -21,7 +21,7 @@ docker-compose up -d
 minikube start
 minikube addons enable ingress
 kubectl apply -f k8s_manifests/
-minikube tunnel  # To expose Ingress on localhost
+minikube tunnel  # To expose Ingress on ClusterIp
 ```
 
 ---
